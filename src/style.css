@@ -1,3 +1,6 @@
+/* global styles placeholder */
+html,body,#app{height:100%}
+body{margin:0;font-family:system-ui,Arial}
 :root {
   --text: #6b6375;
   --text-h: #08060d;
