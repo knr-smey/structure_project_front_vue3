@@ -29,7 +29,7 @@
 							required
 						/>
 					</div>
-					<BaseButton type="submit">Login</BaseButton>
+					<BaseButton text="Login" color="primary" />
 				</form>
 				<p class="mt-6 text-center text-sm text-slate-600">
 					Don't have an account?
