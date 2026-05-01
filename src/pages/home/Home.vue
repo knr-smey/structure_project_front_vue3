@@ -1,11 +1,11 @@
 <template>
-  <div class="relative min-h-screen flex items-center justify-center px-6 bg-[#f8f8f6] overflow-hidden ">
+  <div class="relative min-h-screen flex items-center justify-center px-6 app-bg overflow-hidden ">
 
     <!-- Background grid -->
     <div class="absolute inset-0 opacity-60 bg-[linear-gradient(rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.06)_1px,transparent_1px)] bg-[size:36px_36px]"></div>
 
     <!-- Card -->
-    <div class="relative z-10 w-full max-w-[700px] bg-white border border-black/10 rounded-2xl p-12">
+    <div class="relative z-10 w-full max-w-[700px] app-card border rounded-2xl p-12">
 
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-8 font-mono tracking-wide">
@@ -13,8 +13,8 @@
         vue 3 · composition api · 2026
       </div>
 
-      <!-- Title (BIG upgrade) -->
-      <h1 class="text-4xl sm:text-5xl font-semibold text-black leading-tight tracking-tight mb-4">
+      <!-- Title (Adjusted smaller) -->
+      <h1 class="text-3xl sm:text-4xl font-semibold text-black leading-tight tracking-tight mb-4">
         Vue 3 Starter Template
       </h1>
 
@@ -79,5 +79,4 @@
 </template>
 
 <script setup>
-  
 </script>
