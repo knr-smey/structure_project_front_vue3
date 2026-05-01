@@ -37,11 +37,6 @@
           <RouterLink class="font-semibold text-blue-600 hover:text-blue-700" to="/register">Create one</RouterLink>
         </p>
 
-        <p class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
-          <i class="fa-solid fa-phone text-blue-600"></i>
-          Call support
-        </p>
-
       </div>
     </div>
   </div>
