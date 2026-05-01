@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardPage from '@/pages/dashboard/DashboardPage.vue'
+import Login from '@/pages/auth/Login.vue'
+import Register from '@/pages/auth/Register.vue'
 
 const routes = [
   { path: '/', redirect: '/dashboard' },
   { path: '/dashboard', component: DashboardPage },
+  // Auth pages
+  { path: '/login', component: Login },
+  { path: '/register', component: Register },
 ]
 
 const router = createRouter({
