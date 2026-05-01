@@ -59,9 +59,14 @@
       <!-- Footer -->
       <div class="flex items-center justify-between">
 
-        <button class="text-sm font-mono border border-black/20 rounded-lg px-5 py-2.5 hover:bg-gray-100 transition">
-          $ git clone
-        </button>
+        <a
+          class="text-sm font-mono border border-black/20 rounded-lg px-5 py-2.5 hover:bg-gray-100 transition"
+          href="https://github.com/knr-smey/structure_project_front_vue3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          $ github link
+        </a>
 
         <span class="text-xs text-gray-600 font-mono">
           @Kung Norasmey
@@ -72,3 +77,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+  
+</script>
