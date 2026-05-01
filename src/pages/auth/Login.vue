@@ -2,7 +2,7 @@
   <!-- Page wrapper: full-height background and centered card -->
   <div class="min-h-screen bg-slate-100">
     <div class="mx-auto flex min-h-screen max-w-md items-center px-4">
-      <div class="w-full bg-white p-8 shadow-xl">
+      <div class="w-full bg-white p-8 shadow-xl rounded-sm">
 
         <!-- Header: title and subtitle -->
         <div class="mb-6 text-center">
@@ -35,6 +35,11 @@
         <p class="mt-6 text-center text-sm text-slate-600">
           Don't have an account?
           <RouterLink class="font-semibold text-blue-600 hover:text-blue-700" to="/register">Create one</RouterLink>
+        </p>
+
+        <p class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
+          <i class="fa-solid fa-phone text-blue-600"></i>
+          Call support
         </p>
 
       </div>
