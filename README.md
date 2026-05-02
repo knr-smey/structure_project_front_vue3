@@ -44,12 +44,16 @@ src/                 # Application source code
 	components/        # Reusable UI components
 		base/            # Base UI building blocks (BaseInput, BaseButton, ...)
 		home/            # Home page-specific components
+		preview/         # Preview page components
 	composables/       # Reusable Vue composables (hooks)
 	layouts/           # Layout wrappers (DefaultLayout, etc.)
 	pages/             # Route-level pages
 		auth/            # Auth pages (Login, Register)
 		dashboard/       # Dashboard pages
 		home/            # Home pages
+		preview/         # Preview page
+		NotFound.vue     # 404 page
+	modules/           # Feature-based modules
 	router/            # Vue Router setup
 	services/          # API helpers and HTTP clients
 	stores/            # App state stores (Pinia or similar)
