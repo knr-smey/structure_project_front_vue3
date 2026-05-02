@@ -41,24 +41,29 @@ const navLinks = [
   <!-- Right-side panel: structure preview -->
   <div class="w-full lg:w-[56%] bg-[#fafafa] p-4 sm:p-6 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-black/10">
 
-    <!-- Header: title + navigation -->
+    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-
       <!-- Section label -->
       <span class="text-[11px] tracking-widest uppercase">
         project structure
       </span>
 
       <!-- Navigation links -->
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-3 items-center">
+
+        <span class="text-xs text-gray-400 font-mono">
+          Demo:
+        </span>
+
         <router-link
           v-for="link in navLinks"
           :key="link.path"
           :to="link.path"
-          class="font-mono text-xs text-gray-500 px-3 py-1 rounded-md border border-transparent hover:border-black/10 hover:bg-white transition"
+          class="font-mono text-xs text-gray-500 hover:underline underline-offset-4 decoration-black transition"
         >
           {{ link.name }}
         </router-link>
+
       </div>
 
     </div>
