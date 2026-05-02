@@ -20,7 +20,7 @@
 
 <template>
   <!-- Left panel: overview / marketing summary -->
-  <div class="w-[44%] p-14 flex flex-col justify-between">
+  <div class="w-full lg:w-[44%] p-6 sm:p-8 lg:p-14 flex flex-col justify-between">
 
     <!-- Top section: badge, title, description, features -->
     <div>
@@ -31,12 +31,12 @@
       </div>
 
       <!-- Main title -->
-      <h1 class="text-3xl sm:text-4xl font-semibold text-black mb-5 leading-tight">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-black mb-5 leading-tight">
         Vue 3 Starter
       </h1>
 
       <!-- Short description -->
-      <p class="text-gray-600 mb-10 leading-relaxed">
+      <p class="text-gray-600 mb-8 sm:mb-10 leading-relaxed">
         Minimal, scalable frontend structure designed for clean architecture and fast development.
       </p>
 
@@ -71,7 +71,7 @@
     </div>
 
     <!-- Footer: repo link + attribution -->
-    <div class="flex items-center justify-between mt-10">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-10">
 
       <!-- Repository link -->
       <a

@@ -1,5 +1,5 @@
 <template>
-<div class="p-5 font-mono text-[12px] overflow-auto flex-1 leading-5">
+<div class="p-4 sm:p-5 font-mono text-[11px] sm:text-[12px] overflow-auto flex-1 leading-5">
 <pre>
 <span class="text-black font-medium">src/</span>
 <span class="text-gray-300">├── </span><span class="text-blue-600">assets/</span>

@@ -33,23 +33,24 @@ const navLinks = [
   { name: 'login', path: '/login' },
   { name: 'register', path: '/register' },
   { name: 'dashboard', path: '/dashboard' },
+  { name: 'home', path: '/home' },
 ]
 </script>
 
 <template>
   <!-- Right-side panel: structure preview -->
-  <div class="w-[56%] bg-[#fafafa] p-6 flex flex-col gap-4 border-l border-black/10">
+  <div class="w-full lg:w-[56%] bg-[#fafafa] p-4 sm:p-6 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-black/10">
 
     <!-- Header: title + navigation -->
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
 
       <!-- Section label -->
-      <span class="font-mono text-[11px] tracking-widest uppercase">
+      <span class="text-[11px] tracking-widest uppercase">
         project structure
       </span>
 
       <!-- Navigation links -->
-      <div class="flex gap-2">
+      <div class="flex flex-wrap gap-2">
         <router-link
           v-for="link in navLinks"
           :key="link.path"
