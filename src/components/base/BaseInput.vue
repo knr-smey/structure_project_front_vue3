@@ -19,40 +19,11 @@
 |
 */
 
-/*
-|--------------------------------------------------------------------------
-| Usage Guide: BaseInput
-|--------------------------------------------------------------------------
-|
-| Examples:
-|
-| 1. Basic usage
-| <BaseInput v-model="form.email" placeholder="Email" />
-|
-| 2. Password field (with toggle)
-| <BaseInput v-model="form.password" type="password" />
-|
-| 3. Error state
-| <BaseInput v-model="form.email" state="error" />
-|
-| 4. Success state
-| <BaseInput v-model="form.email" state="success" />
-|
-| 5. Native attributes (passed via $attrs)
-| <BaseInput v-model="form.email" required autocomplete="email" />
-|
-| Notes:
-| - Supports all native input attributes
-| - Password type automatically enables visibility toggle
-| - Use "state" prop to control validation styling
-|
-*/
-
 <template>
-  <!-- Wrapper: handles relative positioning for toggle button -->
+  <!-- Wrapper: enables positioning for password toggle -->
   <div class="relative w-full">
 
-    <!-- Input field -->
+    <!-- Input element -->
     <input
       v-model="model"
       v-bind="$attrs"
@@ -60,7 +31,7 @@
       :class="[baseClass, stateClass, paddingClass]"
     />
 
-    <!-- Password visibility toggle -->
+    <!-- Password visibility toggle button -->
     <button
       v-if="isPasswordField"
       type="button"
@@ -78,14 +49,14 @@
 </template>
 
 <script setup>
-import { computed, ref, useAttrs } from 'vue'
+import { computed, ref } from 'vue'
 
 /*
 |--------------------------------------------------------------------------
 | Configuration
 |--------------------------------------------------------------------------
 |
-| Disable automatic attribute inheritance so we control what goes to input
+| Disable automatic attribute inheritance so we fully control bindings
 |
 */
 defineOptions({
@@ -101,21 +72,17 @@ const model = defineModel()
 
 /*
 |--------------------------------------------------------------------------
-| Native attributes
-|--------------------------------------------------------------------------
-*/
-const attrs = useAttrs()
-
-/*
-|--------------------------------------------------------------------------
 | Props
 |--------------------------------------------------------------------------
 */
 const props = defineProps({
+  // Input type (text, password, email, etc.)
   type: {
     type: String,
     default: 'text',
   },
+
+  // Validation state
   state: {
     type: String,
     default: 'normal', // normal | error | success
@@ -129,14 +96,17 @@ const props = defineProps({
 */
 const showPassword = ref(false)
 
+// Check if current input is password type
 const isPasswordField = computed(() => props.type === 'password')
 
+// Dynamically switch input type
 const inputType = computed(() =>
   isPasswordField.value
     ? (showPassword.value ? 'text' : 'password')
     : props.type
 )
 
+// Toggle visibility
 function togglePassword() {
   showPassword.value = !showPassword.value
 }
@@ -147,16 +117,16 @@ function togglePassword() {
 |--------------------------------------------------------------------------
 */
 
-// base styles
+// Base input styles
 const baseClass =
   'w-full px-4 py-2 text-sm rounded-md border bg-white text-slate-900 placeholder-slate-400 transition outline-none disabled:opacity-60 disabled:bg-slate-100 disabled:cursor-not-allowed'
 
-// extra padding for password icon
+// Add padding if password icon exists
 const paddingClass = computed(() =>
   isPasswordField.value ? 'pr-10' : ''
 )
 
-// state-based styles
+// State styles (validation)
 const stateClass = computed(() => {
   const map = {
     normal: 'border-slate-300 focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-200',

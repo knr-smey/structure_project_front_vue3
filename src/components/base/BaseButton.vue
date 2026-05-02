@@ -1,68 +1,74 @@
-<template>
-  <!-- Base Button -->
-  <button
-    :disabled="loading || disabled"
-    :class="[baseClass, colorClass]"
-  >
-    <!-- Loading indicator -->
-    <span v-if="loading" class="mr-2 animate-spin">⏳</span>
+/*
+|--------------------------------------------------------------------------
+| File: BaseButton.vue
+|--------------------------------------------------------------------------
+|
+| Description:
+| Reusable button component with support for loading, disabled state,
+| preset colors, and custom styling.
+|
+| Responsibilities:
+| - Provide consistent button UI across the app
+| - Handle loading + disabled states
+| - Support preset and custom color styling
+| - Allow flexible content via props or slots
+|
+| Notes:
+| - Use slots for complex content (icons, etc.)
+| - Loading state automatically disables button
+| - Supports native button types (button, submit, reset)
+|
+*/
 
-    <!-- Button text -->
-    {{ text }}
+<template>
+  <!-- Base button -->
+  <button
+    :type="type"
+    :disabled="loading || disabled"
+    :aria-disabled="loading || disabled"
+    :aria-busy="loading"
+    :class="[baseClass, widthClass, colorClass]"
+  >
+    <!-- Loading spinner -->
+    <span v-if="loading" class="animate-spin">⏳</span>
+
+    <!-- Content -->
+    <span class="flex items-center gap-2">
+      <slot>
+        {{ text }}
+      </slot>
+    </span>
   </button>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 
-/**
- * ================================
- * 📌 HOW TO USE THIS BUTTON
- * ================================
- *
- * 1. Basic usage:
- * <BaseButton text="Login" />
- *
- * 2. Use preset color:
- * <BaseButton text="Delete" color="danger" />
- *
- * Available preset colors:
- * - primary (default)
- * - danger
- * - success
- * - warning
- *
- * 3. Use custom Tailwind color:
- * <BaseButton
- *   text="Custom"
- *   color="bg-purple-600 hover:bg-purple-700 text-white"
- * />
- *
- * 4. Loading state:
- * <BaseButton text="Submitting..." :loading="true" />
- *
- * 5. Disabled state:
- * <BaseButton text="Disabled" :disabled="true" />
- *
- */
-
-/**
- * Props definition
- */
+/*
+|--------------------------------------------------------------------------
+| Props
+|--------------------------------------------------------------------------
+*/
 const props = defineProps({
-  // Text inside button
+  // Button text fallback
   text: {
     type: String,
     default: 'Button',
   },
 
-  // Color: can be preset key OR custom Tailwind class
+  // Button type (important for forms)
+  type: {
+    type: String,
+    default: 'button', // button | submit | reset
+  },
+
+  // Color preset or custom Tailwind class
   color: {
     type: String,
     default: 'primary',
   },
 
-  // Loading state (disable + show spinner)
+  // Loading state
   loading: {
     type: Boolean,
     default: false,
@@ -72,37 +78,43 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false,
-  }
+  },
+
+  // Full width or auto width
+  block: {
+    type: Boolean,
+    default: true,
+  },
 })
 
-/**
- * Base styles (shared across all buttons)
- * - small radius (rounded-sm)
- * - full width
- * - smooth transition
- */
+/*
+|--------------------------------------------------------------------------
+| Base Styles
+|--------------------------------------------------------------------------
+*/
 const baseClass =
-  'cursor-pointer w-full px-4 py-2 text-sm font-semibold rounded-sm transition focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed'
+  'inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-md transition focus-visible:outline-none focus-visible:ring-2 disabled:opacity-60 disabled:cursor-not-allowed'
 
-/**
- * Color logic
- * - If matches preset → use predefined style
- * - Else → treat as custom Tailwind class
- */
+/*
+|--------------------------------------------------------------------------
+| Width Control
+|--------------------------------------------------------------------------
+*/
+const widthClass = computed(() => (props.block ? 'w-full' : 'w-auto'))
+
+/*
+|--------------------------------------------------------------------------
+| Color Logic
+|--------------------------------------------------------------------------
+*/
 const colorClass = computed(() => {
   const preset = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-300',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-300',
-    success: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-300',
-    warning: 'bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-300',
+    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-300',
+    danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-300',
+    success: 'bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-300',
+    warning: 'bg-yellow-500 text-black hover:bg-yellow-600 focus-visible:ring-yellow-300',
   }
 
-  // Use preset if exists
-  if (preset[props.color]) {
-    return preset[props.color]
-  }
-
-  // Otherwise use custom class from user
-  return props.color
+  return preset[props.color] || props.color
 })
 </script>
