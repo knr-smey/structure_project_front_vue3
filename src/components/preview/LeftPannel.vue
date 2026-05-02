@@ -78,7 +78,7 @@
         href="https://github.com/knr-smey/structure_project_front_vue3"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-sm font-mono border border-black/20 px-4 py-2 rounded-md hover:bg-black hover:text-white transition"
+        class="text-sm font-mono border border-black/20 px-4 py-2 rounded-md hover:border-black/10 hover:bg-white transition"
       >
         github
       </a>
