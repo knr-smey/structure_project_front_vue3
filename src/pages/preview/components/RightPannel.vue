@@ -23,7 +23,7 @@
 */
 
 <script setup>
-import PreText from './PreText.vue'
+import PreText from './PreText.vue';
 
 /**
  * Navigation links for demo pages.

@@ -23,8 +23,8 @@
 */
 
 <script setup>
-import LeftPannel from '@/components/preview/LeftPannel.vue'
-import RightPannel from '@/components/preview/RightPannel.vue'
+import LeftPannel from './components/LeftPannel.vue';
+import RightPannel from './components/RightPannel.vue';
 </script>
 
 <template>
