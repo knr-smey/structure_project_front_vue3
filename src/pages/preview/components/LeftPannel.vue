@@ -80,7 +80,7 @@
         rel="noopener noreferrer"
         class="text-sm font-mono border border-black/20 px-4 py-2 rounded-md hover:border-black/10 hover:bg-white transition"
       >
-        github
+        github link for clone
       </a>
 
       <!-- Author -->
